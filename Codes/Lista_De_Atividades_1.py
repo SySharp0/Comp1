@@ -66,11 +66,12 @@ float, float -> float"""
 
 
 #Lista 2 - Lab1.pdf - Exercício 6 -
-def Media_Ponderada(pesoa, a, pesob, b):
-        """Com base nos valores e no peso do valor, retorna a média ponderada dos dois
+def Media_Ponderada(A, B):
+        """Com base nos pares de valores inseridos, que condizem ao peso e ao valor algébrico
+, retorna a média ponderada dos dois
 algarismos de entrada.
-float, float, float, float -> float"""
-        return ((pesoa*a) + (pesob*b))/ (pesoa+pesob)
+tupla, tupla -> float"""
+        return ((A[0]*A[1]) + (B[0]*B[1]))/ (A[0]+B[0])
 
 
 #Lista 2 - Lab1.pdf - Exercício 7 -
@@ -92,7 +93,8 @@ float -> float"""
 def Saldo_Final(Saldo_inicial, t_juros, meses):
     """Com base em uma conta bancária com saldo inicial, de uma taxa que deve ser declarada
 na forma sem a porcentagem (ex. 5% = 5) e da quantidade em meses em que o juros mensal irá incidir
-essa função calcula o saldo final da conta.
+essa função calcula o saldo final da conta. Sendo que, os meses só contam para o calculo quando
+representarem numeros fechados (naturais).
 float, float, int -> float"""
     #Conversão da forma: x% para x/100
     taxa = t_juros/100
@@ -107,3 +109,96 @@ barco, calcula a distância que a correnteza provoca no deslocamento do barco.
 float, float, float -> float"""
     #Função proveniente da decomposição de vetores V(correnteza) e V(Barco), com base na função horária x(t) = x0 + v.t 
     return (Velocidade_Correnteza * Largura_rio) / Velocidade_barco
+
+
+#Lista 3 - Lab2.pdf - Exercício 1 -
+    # Exercicio 1.a)
+def Teste():
+    """Testa as funções max e min já definidas no módulo do Python, com base nos valores de entrada
+oferecidos pela questão."""
+    return max(3,2.8,3.9), min(7,2,4,1,0)
+
+    # Exercicio 1.b)
+def Media(a, b, c):
+    """Calcula a média dos 3 valores inseridos.
+float, float, float -> float"""
+    return (a+b+c)/3
+
+    # Exercicio 1.c)
+def Comparacao_do_max(a, b, c):
+    """Calcula a direfença entre o máximo valor dentre 3 algarismos e a média.
+float, float, float -> float"""
+    return max(a,b,c) - Media(a,b,c)
+
+    # Exercicio 1.d)
+def Soma_do_min(a, b, c):
+    """Com base em 3 algarismos de entrada realiza a soma do menor valor dentre eles com a média.
+float, float, float -> float"""
+    return min(a, b, c) + Media(a,b,c)
+
+
+#Lista 3 - Lab2.pdf - Exercício 2 -
+    # Exercicio 2.a)
+def Delta_Descriminante(a,b,c):
+    """Sendo o descriminante de uma função (delta) uma parte da função bhaskara, essa função retorna seu
+valor algébrico com base nos coeficientes a, b, c da função.
+float, float, float -> float"""
+    return (b**2)-(4*a*c)
+
+    # Exercicio 2.b)
+def Primeira_Raiz (a,b,c):
+    """Com base na função acima descrita para o calculo de delta(Delta_Descriminante()), e nos coeficientes
+de um polinômio do segundo grau a,b,c, retorna o valor da primeira raiz do polinômio.
+float, float, float -> float"""
+    import math
+    if(Delta_Descriminante(a,b,c)>0):
+        return ((-b)+ math.sqrt(Delta_Descriminante(a,b,c)))/2*a
+    return "Raiz não existe no dominio da função"
+
+    # Exercicio 2.c)
+def Segunda_Raiz (a,b,c):
+    """Com base na função acima descrita para o calculo de delta (Delta_Descriminante()), e nos coeficientes
+de um polinômio do segundo grau a,b,c, retorna o valor da segunda raiz do polinômio.
+float, float, float -> float"""
+    import math
+    if(Delta_Descriminante(a,b,c)>0):
+        return ((-b)- math.sqrt(Delta_Descriminante(a,b,c)))/2*a
+    return "Raiz não existe no dominio da função"
+
+
+#Lista 3 - Lab2.pdf - Exercício 3 -
+    # Exercicio 3.a)
+def Numero_de_Termos(a1, an, r):
+    """Com base na definição de uma PA, que é dada pela formula: an=a1+nr-n, retorna o valor de n, ou seja,
+o numero de termos da PA, por meio de uma manipulação da equação supracitada.
+float, float, float -> float"""
+    return (an-a1+r)/r
+
+    # Exercicio 3.b)
+def Soma_PA(a1, an, r):
+    """Com bases nos valores que serão inseridos: primeiro termo (a1), do ultimo termo (an), e da razão da PA (r)
+retorna a o valor da soma da PA, com base no valor do numero de termos obtidos por meio da função anteriormente
+descrita (Numero_de_Termos()). 
+float, float, float -> float"""
+    n = Numero_de_Termos(a1,an,r)
+    return (n*(a1+an))/2
+
+
+#Lista 3 - Lab2.pdf - Exercício 4 -
+import math
+    # Exercicio 4.a)
+def Distancia_2_Pontos(A,B):
+    """Calcula a distancia entre dois pontos, dado suas cordenadas (ax,ay) em um eixo cartesiano, por meio da 
+formula Euclidiana para distância.
+tupla, tupla -> float"""
+    return math.dist(A,B)
+
+    # Exercicio 4.a)
+def Perimetro_Cateto():
+    """"""
+    return 
+
+
+
+
+    
