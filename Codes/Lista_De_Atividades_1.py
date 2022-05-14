@@ -4,27 +4,27 @@
 
 
 #Lista 1 - Exercícios Extras - Exercício 1 -
-def Conversão_de_moedas (valor_em_Real, taxa_de_Conversao = 4.94):
+def Conversao_de_moedas (valor_em_Real, taxa_de_Conversao = 4.94):
     """ Dado o "valor_em_Real" e uma "taxa_de_Conversão" realiza a conversão monetária,
 sendo que, por questões de frequencia de uso, o valor default para a taxa de conversão
-está definido como a cotação do dolar (4,94).
+está definido como a cotação do dolar (4,94). O retorno terá 3 casas decimais.
 float, float=4.94 -> float"""
-    return valor_em_Real / taxa_de_Conversao
+    return round(valor_em_Real / taxa_de_Conversao, 3)
 
 
 #Lista 1 - Exercícios Extras - Exercício 2 -
 def Valor_da_gorjeta (valor_da_conta, porcentagem_de_gorjeta):
     """Com base no valor da conta, retorna a porcentagem de gorjeta que deve ser paga.
 OBS. o valor de "porcentagem_de_gorjeta" deve ser escrito sem o símbolo de porcentagem.
+O retorno terá 2 casas decimais.
 float, float -> float"""
     #Conversão da forma: x% para x/100
     taxa_de_gorjeta = porcentagem_de_gorjeta / 100
-    return valor_da_conta * taxa_de_gorjeta
+    return round(valor_da_conta * taxa_de_gorjeta, 2)
 
 
 #Lista 1 - Exercícios Extras - Exercício 3 -
     # Exercicio 3.a)
-    #COLOCAR PRINTS DOS VALORES DE TESTE
 def Area_do_circulo(r):
     """Retorna o valor da área do círculo com base em seu raio r.
 Por definição da questão temos que pi = 3.14.
@@ -34,7 +34,7 @@ float -> float"""
 
 def Area_Coroa_Circular_a(r1, r2):
     """Calcula a área da coroa circular com base nos raios r1 e r2, referente aos dois
-círculos. Na definição da questão temos que r1>r2 e que pi = 3.14.
+círculos. Na definição da questão temos que r1>r2 e que pi = 3.14. 
 float, float -> float"""
     return Area_do_circulo(r1) - Area_do_circulo(r2)
 
@@ -105,10 +105,10 @@ float, float, int -> float"""
 #Lista 2 - Lab1.pdf - Exercício 11 -
 def Correnteza_Barco(Velocidade_Correnteza, Largura_rio, Velocidade_barco):
     """Tendo os valores já determinados: velocidade da correnteza, largura do rio e velocidade do
-barco, calcula a distância que a correnteza provoca no deslocamento do barco.
+barco, calcula a distância que a correnteza provoca no deslocamento do barco. O retorno terá 2 casas decimais.
 float, float, float -> float"""
     #Função proveniente da decomposição de vetores V(correnteza) e V(Barco), com base na função horária x(t) = x0 + v.t 
-    return (Velocidade_Correnteza * Largura_rio) / Velocidade_barco
+    return round((Velocidade_Correnteza * Largura_rio) / Velocidade_barco, 2)
 
 
 #Lista 3 - Lab2.pdf - Exercício 1 -
@@ -189,16 +189,30 @@ import math
     # Exercicio 4.a)
 def Distancia_2_Pontos(A,B):
     """Calcula a distancia entre dois pontos, dado suas cordenadas (ax,ay) em um eixo cartesiano, por meio da 
-formula Euclidiana para distância.
+formula Euclidiana para distância. O valor retornado terá 2 casas decimais.
 tupla, tupla -> float"""
-    return math.dist(A,B)
+    return round(math.dist(A,B),2)
 
-    # Exercicio 4.a)
-def Perimetro_Cateto():
-    """"""
-    return 
+    # Exercicio 4.b)
+def Perimetro_Cateto(Ca, Co):
+    """Utiliza do módulo math para que com o par de Cossenos ca,co seja calculada a hipotenusa do triângulo
+retângulo e posteriormente retorna o valor do perimetro do triângulo.
+float, float -> float"""
+    hipotenusa = math.hypot(Ca, Co)
+    return hipotenusa + Ca + Co
+
+    # Exercicio 4.c)
+def Relação_Fundamental(angulo):
+    """Rebendo o valor do angulo em graus prova a relação fundamental da trigonometria, sen^2+cos^2=1
+float -> float"""
+    a = math.radians(angulo)
+    return (math.sin(a)**2)+(math.cos(a)**2)
 
 
-
-
-    
+#Lista 3 - Lab2.pdf - Exercício 5 -
+def Area_Setor_Circular(r, angulo=360):
+    """Recebendo os valores do angulo em graus e do raio retorna o valor da área do setor circular. O valor
+do angulo possui um default para 360º, ou seja, o circulo inteiro. O valor retornado terá 2 casas decimais.
+float, float -> float"""
+    a = math.radians(angulo)
+    return round((r**2)*a, 2)
