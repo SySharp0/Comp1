@@ -55,8 +55,10 @@ def notacao_data (dia, mes, ano):
     """Com base no dia, mes e ano retorna a forma de notação padrão para data, dado por:
 dia/mês/ano.
 int, int, int -> string"""
-    notacao = str(dia) + "/" + str(mes) + "/" + str(ano)
-    return notacao
+    #segundo o calendário não existe valores de dia, mes e ano 0
+    if((dia and mes and ano) > 0):
+        return str(dia) + "/" + str(mes) + "/" + str(ano)
+    return "Data não existente"
 
 #Exercício 5 - Lab3_IDLE_v2.pdf
 
@@ -77,4 +79,46 @@ float -> float"""
 #Como temos uma função com 5 intervalos, e para cada intervalo um condicional diferente
 #é necessario então no mínimo 5 testes, um no intervalo de cada condicional, para saber
 #se a função funciona corretamente.
+
+#Exercício 6 - Lab3_IDLE_v2.pdf
+
+def Desconto_INSS(salario_bruto):
+    """Com base no salário bruto, retorna o desconto percentual do INSS
+float -> float
+obs. o valor em real não deve possuir o simbolo R$, ex: R$150.00 = 150.00"""
+    if(salario_bruto <= 0):
+        return "situação inconsistente"
+    
+    if(salario_bruto <= 2000):
+        return salario_bruto * (6/100)
+    
+    elif(2000 < salario_bruto <= 3000):
+        return salario_bruto * (8/100)
+    
+    elif(salario_bruto > 3000):
+        return salario_bruto * (10/100)
+
+def Desconto_IR(salario_bruto):
+    """Com base no salário bruto, retorna o desconto percentual do IR
+float -> float
+obs. o valor em real não deve possuir o simbolo R$, ex: R$150.00 = 150.00"""
+    if(salario_bruto <= 0):
+        return "situação inconsistente"
+    
+    elif(salario_bruto <= 2500):
+        return salario_bruto * (11/100)
+    
+    elif(2500 < salario_bruto <= 5000):
+        return salario_bruto * (15/100)
+    
+    elif(salario_bruto > 5000):
+        return salario_bruto * (22/100)
+
+def salario_liquido(salario_bruto):
+    """Com base no valor do salário bruto, retorna o valor líquido da quantia, com os
+descontos de IR, e do INSS.
+float -> float
+obs. o valor em real não deve possuir o simbolo R$, ex: R$150.00 = 150.00"""
+    return salario_bruto - (Desconto_INSS(salario_bruto) + Desconto_IR(salario_bruto))
+
 
