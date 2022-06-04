@@ -37,8 +37,49 @@ string -> string"""
 #Lista Lab4_MT - Exercício 4
 
 def filtra_pares (a):
-    """ Reccebendo uma li"""
-    for a in range(0,a.len()):
-        if ((elemento % 2) == 0) or (elemento == 0):
-            del a
-    return a
+    """ Recebendo obrigatóriamente uma tupla "a" contendo 4 algarismos inteiros de entrada
+retorna uma nova tupla que filtrará e devolverá somente os valores de "a" que são pares.
+tuple -> tuple"""
+    if(len(a) == 4 and type(a) == tuple):
+        pares = ()
+        for elemento in a:
+            if ((elemento % 2) == 0) or (elemento == 0):
+                pares = pares + (elemento,)
+        return pares
+    return "Valores de entrada inválidos"
+
+#Lista Lab4IDLE - Exercício 1
+
+def SIGA (a):
+    """ Recebe como entrada uma tupla "a" que deverá estar no formado (<nome_do_aluno>,
+<nota1>, <nota2>, <nota2>) realiza o calculo de média das notas e retorna a situação final
+do aluno, se for maior de 7 retornará aprovado e parabéns, caso esteja entre 5 e 7 retornará
+aprovado, e por fim, caso esteja menor do que 5  retornará reprovado.
+Obs. os valores retornados estarão com limitação de 2 casas decimais.
+tuple -> tuple"""
+    if (type(a) == tuple and len(a) == 4):        
+        média = round(((a[1] + a[2] + a[3])/3),2)
+        base = (a[0], média)
+        if(média >= 7):
+            return base + ("aprovado", "Parabéns")
+        if(5 <= média < 7):
+            return base + ("aprovado",)
+        return base + ("reprovado",)
+    return "Valores de entrada inválidos"
+
+#Lista Lab4IDLE - Exercício 2
+
+def signo_chines (mes):
+    """ Com base no mes de nascimento da pessoa (valor de entrada), retorna em que ciclo
+chinês a pessoa nasceu, e consequentemente o signo da pessoa.
+int -> string"""
+    signos_mes = ("Macaco", "Galo", "Cão", "Porco", "Rato", "Boi", "Tigre", "Coelho",
+                  "Dragão", "Serpente", "Cavalo", "Carneiro")
+    signo_da_pessoa = signos_mes[(mes % 12)]
+    return signo_da_pessoa
+
+#Lista Lab4IDLE - Exercício 3
+
+
+
+
