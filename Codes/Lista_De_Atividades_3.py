@@ -35,3 +35,10 @@ string -> string"""
         return "#" + s[0: metade] + "#" + s[metade:] + "#"
 
 #Lista Lab4_MT - Exercício 4
+
+def filtra_pares (a):
+    """ Reccebendo uma li"""
+    for a in range(0,a.len()):
+        if ((elemento % 2) == 0) or (elemento == 0):
+            del a
+    return a
