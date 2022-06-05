@@ -80,6 +80,39 @@ int -> string"""
 
 #Lista Lab4IDLE - Exercício 3
 
+def analise_de_numeros (telefone):
+    """ Recebe como entrada um número de telefone em formato de string, então caso ele
+seja válido retorna em 2 tuplas <(DDD), (Numero válido)>, caso seja invalido retorna então
+2 tuplas vazias.
+string -> tupla, tupla"""
+    if(type(telefone) == str and 10 <= len(telefone) <= 11):
+        return (telefone[0:2]), (telefone[2:])
+    return (),()
+
+#Lista Lab4IDLE - Exercício 4
+
+def formato_data(data):
+    """ Recebe uma string de entrada, obrigatoriamente no padrão: <xx/xx/xx>, ou seja de 8
+posições, na qual os valores de x devem ser numéricos e estarem no intervalo de 0 a 9.
+Assim, retornará os tipos de notação de data válidos que aqueles números podem representar,
+sendo que, caso não exista nenhuma notação de data aceitável, a função retornará uma tupla
+vazia.
+string -> tuple"""
+    if (len(data) == 8):
+        parte = [int(data[:2]), int(data[3:5]), int(data[6:])]
+        if(0 < parte[1] <= 12) and (0 < parte[0] <= 12) and (0 < parte[2] <= 31):
+            return ("dd/mm/yy","mm/dd/yy","yy/mm/dd")
+        elif((0 < parte[1] <= 12) and (0 < parte[0] <= 31)) or ((0 < parte[0] <= 12) and (0 < parte[1] <= 31)):
+            return ("dd/mm/yy","mm/dd/yy")
+        elif(0 < parte[1] <= 12) and (0 < parte[2] <= 31):
+            return("yy/mm/dd")
+        return ()
+            
+            
+                
+
+            
 
 
-
+        
+        
