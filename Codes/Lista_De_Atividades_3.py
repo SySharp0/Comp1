@@ -107,6 +107,33 @@ string -> tuple"""
         elif(0 < parte[1] <= 12) and (0 < parte[2] <= 31):
             return("yy/mm/dd")
         return ()
+
+#Lista Lab5IDLE - Exercício 1
+
+def adicionar_contatinhosApp (nome, telefone = "vazio", email = "vazio", instagram = "vazio"):
+    """ Recebe 4 parametros de entrada e os adiciona em uma lista conforma o padrão para
+o aplicativo.
+string, string, string, string -> list"""
+    contato_novo = [nome, [telefone], email, instagram]
+    return contato_novo
+
+def atualizar_contatinhosApp (contato_antigo, índice, atualização):
+    """ """
+    if(0 <= índice <= 3):
+        if(índice == 0) or (2 <= índice <= 3):
+            contato_antigo[índice] = atualização
+            return contato_antigo
+        elif(índice == 1) and (atualização not in contato_antigo[índice]):
+            if("vazio" not in contato_antigo[índice]):
+                contato_antigo[índice] = contato_antigo[índice] + [atualização]
+                return contato_antigo
+            else:
+                contato_antigo[índice][0] = atualização
+                return contato_antigo
+    return "teste"
+
+
+
             
             
                 
