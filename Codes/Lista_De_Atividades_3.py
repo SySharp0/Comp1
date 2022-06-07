@@ -85,8 +85,15 @@ def analise_de_numeros (telefone):
 seja válido retorna em 2 tuplas <(DDD), (Numero válido)>, caso seja invalido retorna então
 2 tuplas vazias.
 string -> tupla, tupla"""
-    if(type(telefone) == str and 10 <= len(telefone) <= 11):
-        return (telefone[0:2]), (telefone[2:])
+    if(type(telefone) == str):
+        if((len(telefone) == 8) and (telefone[0] == "3")):
+            return (), (telefone,)
+        if((len(telefone) == 9) and (telefone[0] == "9")):
+            return (), (telefone,)
+        if((len(telefone) == 10) and (telefone[2] == "3")):
+            return (telefone[0:2]), (telefone[2:])
+        if((len(telefone) == 11) and (telefone[2] == "9")):
+            return (telefone[0:2]), (telefone[2:])
     return (),()
 
 #Lista Lab4IDLE - Exercício 4
@@ -118,7 +125,15 @@ string, string, string, string -> list"""
     return contato_novo
 
 def atualizar_contatinhosApp (contato_antigo, índice, atualização):
-    """ """
+    """ Reecbe como entrada um contato já adicionado, um índice (que representa qual informação
+deseja acessar no sistema), e uma nova variável para atualizar o valor antigo(no determinado
+índice).
+Obs. caso os valores que serão alterados sejam os de nome, email ou instagram há uma substituição
+da informação antiga por uma nova, descartando o que existia antes ali. Caso a informação
+alterada seja o telefone háverá então o acrescimo da informação nova na lista(caso o aquele telefone
+já não tenha sido adicionado), e por fim, caso seja passado um índice que não tenha
+correspondência a função retorna a lista sem alterações.
+list, int, str -> list"""
     if(0 <= índice <= 3):
         if(índice == 0) or (2 <= índice <= 3):
             contato_antigo[índice] = atualização
@@ -130,7 +145,19 @@ def atualizar_contatinhosApp (contato_antigo, índice, atualização):
             else:
                 contato_antigo[índice][0] = atualização
                 return contato_antigo
-    return "teste"
+    return contato_antigo
+
+#Lista Lab5IDLE - Exercício 2
+
+def traducao_rnaM(trincas):
+    """ Recebe 3 trincas de RNA e realiza a conversão dessas trincas para suas respectivas
+representações em aminoácidos, retornando por fim a cadeia de aminoácidos correspondente as
+tricas apresentadas.
+str -> str"""
+    aminoacidos = {"UUU" : "Phe", "CUU" : "Leu", "UUA" : "Leu", "AAG" : "Lisina", "UCU" :
+                   "Ser", "UAU" : "Tyr", "CAA" : "Gln"}
+
+    return  aminoacidos[trincas[:3]] + "-" + aminoacidos[trincas [3:6]] + "-" + aminoacidos[trincas[6:]]
 
 
 
