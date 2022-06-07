@@ -158,15 +158,3 @@ str -> str"""
                    "Ser", "UAU" : "Tyr", "CAA" : "Gln"}
 
     return  aminoacidos[trincas[:3]] + "-" + aminoacidos[trincas [3:6]] + "-" + aminoacidos[trincas[6:]]
-
-
-
-            
-            
-                
-
-            
-
-
-        
-        
