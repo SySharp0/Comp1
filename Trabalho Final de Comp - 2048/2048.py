@@ -26,9 +26,14 @@ vazia, sendo que, a chande do valor aleatorio ser 2 é de 4/5 e de ser 4 é 1/5.
 matriz -> none"""
     linha = random.randint(0,3)
     casa = random.randint(0,3)
+    while(tab[linha][casa] != 0):
+        linha = random.randint(0,3)
+        casa = random.randint(0,3)
     if(tab[linha][casa] == 0):
         tab[linha][casa] = random.choice([2,2,4,2,2])
     return tab
+
+
 
 
 
